@@ -28,10 +28,14 @@ const db = knex({
       
     }, 
   });
-
+  var corsOptions = {
+    origin: "http://localhost:3001"
+  };
+  
+  app.use(cors(corsOptions));
 
   app.use(bodyParser.json());
-app.use(cors());
+
 app.get('/', (req, res)=>res.send('merge'));
 app.post("/signin", signin.handleSignin(db, bcrypt));
 app.post("/register", register.handleRegister(db, bcrypt));
