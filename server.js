@@ -29,7 +29,7 @@ const db = knex({
     }, 
   });
   var corsOptions = {
-    origin: "https://activitatidirectie.herokuapp.com'"
+    origin: "https://activitatidirectie.herokuapp.com"
   };
   
   app.use(cors(corsOptions));
