@@ -29,7 +29,7 @@ const db = knex({
     }, 
   });
   var corsOptions = {
-    origin: "http://localhost:3001"
+    origin: "https://localhost:3001"
   };
   
   app.use(cors(corsOptions));
