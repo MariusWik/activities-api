@@ -28,11 +28,8 @@ const db = knex({
       
     }, 
   });
-  var corsOptions = {
-    origin: "http://localhost:3001"
-  };
-  
-  app.use(cors(corsOptions));
+ 
+  app.use(cors);
 
   app.use(bodyParser.json());
 
