@@ -23,15 +23,13 @@ const stergereActivitateVeche = require("./controllers/stergereActivitateVeche.j
 const db = knex({
     client: "pg",
     connection: {
-      connectionString : process.env.DATABASE_URL
+      connectionString : process.env.DATABASE_URL,
+    ssl:true
       
     }, 
   });
-  var corsOptions = {
-    origin: "http://localhost:3001"
-  };
   
-  app.use(cors(corsOptions));
+  app.use(cors);
 
   app.use(bodyParser.json());
 
