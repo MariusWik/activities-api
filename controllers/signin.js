@@ -6,7 +6,7 @@ const handleSignin = (db, bcrypt) => (req, res)=> {
       res.json({
       "username": "admin",
       "sector": "admin",
-      "id": "0",
+      "id": "1",
      
   })}else{if (!username||  !password){
     return  res.status(400).json('Nu ati introdus corect user/parola')
