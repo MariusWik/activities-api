@@ -1,4 +1,4 @@
-const handleAfisareToate = (db) => (req, res) => {
+const handleAfisareToate = (db) => (res) => {
   const numedb = "activitatidirectie";
 
   db.select("*")
