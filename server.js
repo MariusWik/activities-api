@@ -23,10 +23,8 @@ const stergereActivitateVeche = require("./controllers/stergereActivitateVeche.j
 const db = knex({
     client: "pg",
     connection: {
-      host : 'postgresql-shaped-07667',
-      user : 'postgres',
-      password : '',
-      database : 'activitati'
+      host : process.env.DATABASE_URL,
+    ssl:true
       
     }, 
   });
