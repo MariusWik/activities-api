@@ -33,7 +33,7 @@ const db = knex({
   
   
 
-  app.use(cors({origin:true}));
+  app.use(cors());
 
   app.use(bodyParser.json());
 
