@@ -23,8 +23,8 @@ const stergereActivitateVeche = require("./controllers/stergereActivitateVeche.j
 const db = knex({
     client: "pg",
     connection: {
-      connectionString : process.env.DATABASE_URL,
-      host: "https://gentle-island-84394.herokuapp.com",
+      connectionString : 'postgres://rsbreiaswkjqed:6c4f95f57e14f6684d0e94d4560b12557388f043fb82f955f94f3bfb5f8bacb8@ec2-100-26-39-41.compute-1.amazonaws.com:5432/d2tqfhir6lknuhL',
+    
     ssl:true
       
     }, 
