@@ -24,6 +24,7 @@ const db = knex({
     client: "pg",
     connection: {
       connectionString : process.env.DATABASE_URL,
+      host: "https://gentle-island-84394.herokuapp.com",
     ssl:true
       
     }, 
