@@ -31,10 +31,9 @@ const db = knex({
  
 
   app.use(function(req,res,next) {
-    res.setHeader('Access-Control-Allow-Origin':'https://activitatidirectie.herokuapp.com');
+    res.setHeader('Access-Control-Allow-Origin','https://activitatidirectie.herokuapp.com');
     next()
-  })
-  
+  });
   app.use(cors);
 
   app.use(bodyParser.json());
