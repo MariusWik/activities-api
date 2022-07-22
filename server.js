@@ -30,9 +30,16 @@ const db = knex({
     }, 
   });
  
- app.use(cors({origin:"https://activitatidirectie.herokuapp.com"}));
+ 
 
   app.use(bodyParser.json());
+
+  const corsOptions ={
+    origin:'https://activitatidirectie.herokuapp.com', 
+    credentials:true,
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 app.get('/', (req, res)=>res.send('merge'));
 app.post("/signin",  signin.handleSignin(db, bcrypt));
