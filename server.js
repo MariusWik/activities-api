@@ -30,7 +30,7 @@ const db = knex({
     }, 
   });
  
- app.use(cors({origin:"https://activitatidirectie.herokuapp.com/"}));
+ app.use(cors({origin:"https://activitatidirectie.herokuapp.com"}));
 
   app.use(bodyParser.json());
 
