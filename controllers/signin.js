@@ -29,7 +29,7 @@ const handleSignin = (db, bcrypt) => (req, res) => {
           res.status(400).json("Username/Parola gresite");
         }
       })
-      .catch((err) => res.status(400).json("Username/Parola gresite"));
+      .catch((err) => res.status(400).json(err));
   }
 };
 
