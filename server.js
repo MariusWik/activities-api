@@ -30,10 +30,13 @@ const db = knex({
   });
  
 
-  app.use(function(req,res,next) {
-    res.setHeader('Access-Control-Allow-Origin','https://activitatidirectie.herokuapp.com');
-    next()
+  
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
   });
+  
   app.use(cors);
 
   app.use(bodyParser.json());

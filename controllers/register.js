@@ -1,7 +1,6 @@
 const handleRegister = (db, bcrypt) => (req, res) => {
   const { username, password, sector } = req.body;
   if (!username || !password || !sector) {
-    res.setHeader('Access-Control-Allow-Origin','https://activitatidirectie.herokuapp.com');
     return res.status(400).json("incorrect form subbmision");
   }
   const hash = bcrypt.hashSync(password);

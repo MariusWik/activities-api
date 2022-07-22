@@ -2,7 +2,6 @@ const handleSignin = (db, bcrypt) => (req, res) => {
   const { username, password } = req.body;
 
   if ((username === "admin") & (password === "admin")) {
-    res.setHeader('Access-Control-Allow-Origin','https://activitatidirectie.herokuapp.com');
     res.json({
       username: "admin",
       sector: "admin",
@@ -10,7 +9,6 @@ const handleSignin = (db, bcrypt) => (req, res) => {
     });
   } else {
     if (!username || !password) {
-      res.setHeader('Access-Control-Allow-Origin','https://activitatidirectie.herokuapp.com');
       return res.status(400).json("Nu ati introdus corect user/parola");
     }
     db.select("username", "hash")
@@ -24,12 +22,10 @@ const handleSignin = (db, bcrypt) => (req, res) => {
             .from("login")
             .where("username", "=", username)
             .then((user) => {
-              res.setHeader('Access-Control-Allow-Origin','https://activitatidirectie.herokuapp.com');
               res.json(user[0]);
             })
             .catch((err) => res.status(400).json("Username/Parola gresite"));
         } else {
-          res.setHeader('Access-Control-Allow-Origin','https://activitatidirectie.herokuapp.com');
           res.status(400).json("Username/Parola gresite");
         }
       })
