@@ -28,11 +28,14 @@ const db = knex({
       
     }, 
   });
-  var corsOptions = {
-    origin: "https://activitatidirectie.herokuapp.com"
-  };
+ 
+
+  app.use(function(req,res,next) {
+    res.setHeader('Access-Control-Allow-Origin':'https://activitatidirectie.herokuapp.com');
+    next()
+  })
   
-  app.use(cors(corsOptions));
+  app.use(cors);
 
   app.use(bodyParser.json());
 
