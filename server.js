@@ -41,7 +41,7 @@ const db = knex({
 }
 app.use(cors(corsOptions));
 
-app.get('/', (req, res)=>res.send('merge'));
+//app.get('/', (req, res)=>res.send('merge'));
 app.post("/signin",  signin.handleSignin(db, bcrypt));
 app.post("/register", register.handleRegister(db, bcrypt));
 app.put("/stergereactivitate", stergereActivitate.handleStergereActivitate(db));
