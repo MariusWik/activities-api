@@ -1,10 +1,10 @@
 const handleAfisareToate = (db) => (res) => {
   const numedb = "activitatidirectie";
 
-  db.select("*")
+  db.select('*')
     .from(numedb)
-    .orderBy("sector", "asc")
-    .then(results => res.json(results));
+    .orderBy('sector', 'asc')
+    .then(results =>  res.send.json(results));
 };
 
 module.exports = {
