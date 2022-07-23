@@ -4,7 +4,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
     return res.status(400).json("Nu ati introdus corect datele");
   }
   const hash = bcrypt.hashSync(password);
-
+  const numedb='login';
   db.transaction((trx) => {
     trx
       .insert({
@@ -12,7 +12,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
         username: username,
         sector: sector,
       })
-      .into("login")
+      .into(numedb)
 
       .catch((err) => res.status(400).json("Utilizatorul exista"))
       .then(trx.commit);
