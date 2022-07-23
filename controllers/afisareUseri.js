@@ -1,4 +1,4 @@
-const handleAfisareUseri = (db) => (res) => {
+const handleAfisareUseri = (db) => (req,res) => {
   
   const numedb = "login";
   
