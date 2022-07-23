@@ -21,35 +21,29 @@ const stergereActivitateVeche = require("./controllers/stergereActivitateVeche.j
 
 
 const db = knex({
-    client: "pg",
-    connection: {
-      connectionString : process.env.DATABASE_URL,
-      host: "https://gentle-island-84394.herokuapp.com",
-    ssl:true
-      
-    }, 
-  });
- 
- 
+  client: "pg",
+  connection: {
+    host : '127.0.0.1',
+    user : 'postgres',
+    password : 'test',
+    database : 'activitati'
+    
+  }, 
+});
 
-  app.use(bodyParser.json());
 
-  const corsOptions ={
-    origin:'https://activitatidirectie.herokuapp.com', 
-    credentials:true,
-    optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+app.use(bodyParser.json());
+app.use(cors());
 
 //app.get('/', (req, res)=>res.send('merge'));
-app.post("/signin",  signin.handleSignin(db, bcrypt));
-app.post("/register", register.handleRegister(db, bcrypt));
+app.post('/signin',  signin.handleSignin(db, bcrypt));
+app.post('/register', register.handleRegister(db, bcrypt));
 app.put("/stergereactivitate", stergereActivitate.handleStergereActivitate(db));
 app.post("/modificareactivitate", modificareActivitate.handleModificareActivitate(db));
 app.post("/adaugareativitate", adaugareActivitate.handleAdaugareActivitate(db));
 app.post("/afisareactivitati", afisareActivitati.handleAfisareActivitati(db));
 app.get("/afisaretoate", afisareToate.handleAfisareToate(db));
-app.get("/afisareuseri",afisareUseri.handleAfisareUseri(db));
+app.get('/afisareuseri', afisareUseri.handleAfisareUseri(db));
 app.put("/stergereuser", stergereUser.handleStergereUser(db));
 app.post("/schimbareparola", schimbareParola.handleSchimbareParola(db, bcrypt));
 app.post("/arhivareactivitate", arhivareActivitate.handleArhivareActivitate(db));
