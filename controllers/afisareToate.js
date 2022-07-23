@@ -4,7 +4,7 @@ const handleAfisareToate = (db) => (res) => {
   db.select("*")
     .from(numedb)
     .orderBy("sector", "asc")
-    .then((results) => res.send(results));
+    .then(results => res.json(results));
 };
 
 module.exports = {
