@@ -5,7 +5,7 @@ const handleAfisareUseri = (db) => (res) => {
   db.select("id", "username", "sector")
     .from(numedb)
     .orderBy("sector", "asc")
-    .then((results) => res.send(results));
+    .then((results) => res.json(results));
 }
 
 module.exports = {
