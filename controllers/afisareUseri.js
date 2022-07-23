@@ -2,7 +2,7 @@ const handleAfisareUseri = (db) => (req,res) => {
   
   const numedb = "login";
 
-       db.select('id','username', 'sector').from(numedb).orderBy('sector', 'asc').then(results => res.send.json(results));
+       db.select('id','username', 'sector').from(numedb).orderBy('sector', 'asc').then(results => res.json(results));
 }
 
 module.exports = {
