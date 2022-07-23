@@ -31,7 +31,7 @@ const db = knex({
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.get('/afisareuseri', (req, res)=> { afisareUseri.handleAfisareUseri(req, res, db)});
+app.get('/afisareuseri', afisareUseri.handleAfisareUseri(db));
 
 //app.get('/', (req, res)=>res.send('merge'));
 app.post('/signin',  signin.handleSignin(db, bcrypt));
