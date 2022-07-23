@@ -30,7 +30,7 @@ const db = knex({
 
 const app = express();
 
-app.use(cors());
+app.use(cors({origin:"https://activitatidirectie.herokuapp.com"}));
 app.use(bodyParser.json());
 
 //app.get('/', (req, res)=>res.send('merge'));
