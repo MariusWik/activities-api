@@ -30,7 +30,11 @@ const db = knex({
 
 const app = express();
 
-app.use(cors());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://activitatidirectie.herokuapp.com"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use(bodyParser.json());
 
 //app.get('/', (req, res)=>res.send('merge'));
@@ -41,7 +45,6 @@ app.post("/modificareactivitate", modificareActivitate.handleModificareActivitat
 app.post("/adaugareativitate", adaugareActivitate.handleAdaugareActivitate(db));
 app.post("/afisareactivitati", afisareActivitati.handleAfisareActivitati(db));
 app.get("/afisaretoate", afisareToate.handleAfisareToate(db));
-app.use(cors());
 app.get('/afisareuseri', (req, res)=> { afisareUseri.handleAfisareUseri(req, res, db)});
 app.put("/stergereuser", stergereUser.handleStergereUser(db));
 app.post("/schimbareparola", schimbareParola.handleSchimbareParola(db, bcrypt));
@@ -49,6 +52,6 @@ app.post("/arhivareactivitate", arhivareActivitate.handleArhivareActivitate(db))
 app.post("/afisareactivitativechi", afisareActivitatiVechi.handleAfisareActivitatiVechi(db));
 app.put("/stergereactivitateveche", stergereActivitateVeche.handleStergereActivitateVeche(db));
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT, () => {
     console.log(`app is runnign on port ${process.env.PORT}`);
   });
