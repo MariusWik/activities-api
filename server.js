@@ -29,7 +29,7 @@ const db = knex({
 });
 
 const app = express();
-
+app.use(cors());
 app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
