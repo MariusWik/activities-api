@@ -17,7 +17,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
       .catch((err) => res.status(400).json("Utilizatorul exista"))
       .then(trx.commit);
   } ) 
-  res.sendStatus(200);
+  res.status(200).json('Utilizator introdus');
 };
 
 module.exports = {
