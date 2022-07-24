@@ -38,16 +38,16 @@ app.get('/afisareuseri', afisareUseri.handleAfisareUseri(db));
 //app.get('/', (req, res)=>res.send('merge'));
 app.post('/signin',  signin.handleSignin(db, bcrypt));
 app.post('/register', register.handleRegister(db, bcrypt));
-app.put("/stergereactivitate", stergereActivitate.handleStergereActivitate(db));
+app.post("/stergereactivitate", stergereActivitate.handleStergereActivitate(db));
 app.post("/modificareactivitate", modificareActivitate.handleModificareActivitate(db));
 app.post("/adaugareativitate", adaugareActivitate.handleAdaugareActivitate(db));
 app.post("/afisareactivitati", afisareActivitati.handleAfisareActivitati(db));
 app.get("/afisaretoate", afisareToate.handleAfisareToate(db));
-app.patch("/stergereuser", stergereUser.handleStergereUser(db));
+app.post("/stergereuser", stergereUser.handleStergereUser(db));
 app.post("/schimbareparola", schimbareParola.handleSchimbareParola(db, bcrypt));
 app.post("/arhivareactivitate", arhivareActivitate.handleArhivareActivitate(db));
 app.post("/afisareactivitativechi", afisareActivitatiVechi.handleAfisareActivitatiVechi(db));
-app.put("/stergereactivitateveche", stergereActivitateVeche.handleStergereActivitateVeche(db));
+app.post("/stergereactivitateveche", stergereActivitateVeche.handleStergereActivitateVeche(db));
 
 app.listen(process.env.PORT, () => {
     console.log(`app is runnign on port ${process.env.PORT}`);
