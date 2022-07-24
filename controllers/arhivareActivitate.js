@@ -23,7 +23,7 @@ const handleArhivareActivitate = (db) => (req, res) => {
         .catch(trx.rollback);
     }).catch((err) => res.status(400).json(err));
 
-    res.json('Activitate arhivata');
+    res.status(200).json('Activitate arhivata');
   };
 
   
