@@ -1,7 +1,7 @@
 const handleStergereUser = (db) => (req, res) => {
     const { username} = req.body;
     if ( username==='admin') {
-      return  res.status(400).json('nu, nu se poate sterge :)')
+      return  res.status(200).json('nu, nu se poate sterge :)')
    }
    
     const numedb=`login`;
