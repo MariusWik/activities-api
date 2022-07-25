@@ -42,7 +42,7 @@ app.post("/stergereactivitate", stergereActivitate.handleStergereActivitate(db))
 app.post("/modificareactivitate", modificareActivitate.handleModificareActivitate(db));
 app.post("/adaugareativitate", adaugareActivitate.handleAdaugareActivitate(db));
 app.post("/afisareactivitati", afisareActivitati.handleAfisareActivitati(db));
-app.get("/afisaretoate", afisareToate.handleAfisareToate(db));
+app.post("/afisaretoate", afisareToate.handleAfisareToate(db));
 app.post("/stergereuser", stergereUser.handleStergereUser(db));
 app.post("/schimbareparola", schimbareParola.handleSchimbareParola(db, bcrypt));
 app.post("/arhivareactivitate", arhivareActivitate.handleArhivareActivitate(db));
