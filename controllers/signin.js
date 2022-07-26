@@ -9,7 +9,7 @@ const handleSignin = (db, bcrypt) => (req, res) => {
     });
   } else {
     if (!username || !password) {
-      return res.status(400).json("Nu ati introdus corect user/parola");
+      return res.status(200).json("Nu ati introdus corect user/parola");
     }
     db.select("username", "hash")
       .from("login")
