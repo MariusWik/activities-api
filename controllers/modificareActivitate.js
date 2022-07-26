@@ -1,7 +1,7 @@
 const handleModificareActivitate = (db) => (req, res) => {
     const { id, activitate, datastart, datastop, procent, observatii} = req.body;
     if ( !activitate|| !datastart||  !procent || !observatii) {
-       return  res.status(400).json('Nu ati introdus corect datele')
+       return  res.status(200).json('Nu ati introdus corect datele')
     }
     const nrsector=req.body.sector;
     const numedb='activitatidirectie';
