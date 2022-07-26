@@ -21,7 +21,7 @@ if (exista.length===0) {db.transaction((trx) => {
     .catch(trx.rollback);
     res.status(200).json('utilizator introdus');
 } ) } else {
-   res.status(200).json('utilizatorul exista')
+   res.status(200).json(exista)
 }
   
 
