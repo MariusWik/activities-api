@@ -14,10 +14,10 @@ const handleRegister = (db, bcrypt) => (req, res) => {
         sector: sector,
       })
       .into(numedb)
-      .catch((err) => res.status(200).json(err))
+      .catch((err) => res.status(200).json("Utilizatorul exista"))
       .then(trx.commit);
   } ) 
-  res.status(200).json('Utilizator introdus');
+  
 };
 
 module.exports = {
