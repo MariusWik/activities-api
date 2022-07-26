@@ -6,7 +6,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
 
   const hash = bcrypt.hashSync(password);
   const numedb='login';
-  const exista = db.select('*').from(numedb).where('sector','=',`${nrsector}`).orderBy('id', 'desc').then(results => res.send(results));
+  const exista = db.select('*').from(numedb).where('username','=',`${username}`);
 
 
 if (exista===0) {db.transaction((trx) => {
