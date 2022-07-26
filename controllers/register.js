@@ -6,7 +6,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
 
   const hash = bcrypt.hashSync(password);
   const numedb = "login";
-  const exista = db.select('*').exists(
+  const exista = db.whereExists(
     db.select("1").from(numedb).where("username", "=", `${username}`)
   );
 
