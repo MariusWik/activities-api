@@ -6,10 +6,10 @@ const handleRegister = (db, bcrypt) => (req, res) => {
 
   const hash = bcrypt.hashSync(password);
   const numedb='login';
-  const exista = db.select('*').from(numedb).where('username','=',`${username}`);
+ const exista = db.select.exists(db.select('1').from(numedb).where('username','=',`${username}`))
 
 
-if (exista.length===0) {db.transaction((trx) => {
+if (!exista) {db.transaction((trx) => {
   trx
     .insert({
       hash: hash,
@@ -21,8 +21,8 @@ if (exista.length===0) {db.transaction((trx) => {
     .catch(trx.rollback);
     res.status(200).json('utilizator introdus');
 } ) } else {
-  console.log(exista.length)
-   res.status(200).json('utilizator introdus')
+  
+   res.status(200).json('utilizator exista')
 
 }
   
