@@ -9,7 +9,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
   const exista = db.select('*').from(numedb).where('username','=',`${username}`);
 
 
-if (exista===0) {db.transaction((trx) => {
+if (exista.length===0) {db.transaction((trx) => {
   trx
     .insert({
       hash: hash,
