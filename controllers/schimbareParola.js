@@ -1,7 +1,7 @@
 const handleSchimbareParola = (db, bcrypt) => (req, res) => {
   const { oldpassword, newpassword, numeschimbare } = req.body;
   if (!oldpassword || !newpassword || !numeschimbare) {
-    return res.status(400).json("Nu ati introdus corect datele");
+    return res.status(200).json("Nu ati introdus corect datele");
   }
   const newPass = bcrypt.hashSync(newpassword);
   const numedb = "login";
@@ -22,10 +22,10 @@ const handleSchimbareParola = (db, bcrypt) => (req, res) => {
             .then(trx.commit)
             .catch(trx.rollback);
 
-          res.json("Parola modificata cu succes");
+          res.status(200).json("Parola modificata cu succes");
         });
       } else {
-        res.status(400).json("Parola veche gresita");
+        res.status(200).json("Parola veche gresita");
       }
     });
 };
