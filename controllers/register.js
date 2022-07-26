@@ -11,7 +11,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
   );
 
   if (exista) {
-    res.status(200).json("utilizator exista");
+    return res.status(200).json("utilizator exista");
   } else {
     db.transaction((trx) => {
       trx
