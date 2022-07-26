@@ -6,7 +6,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
 
   const hash = bcrypt.hashSync(password);
   const numedb = "login";
-  db.transaction((trx) => {
+  try{db.transaction((trx) => {
     trx
       .insert({
         hash: hash,
@@ -14,10 +14,14 @@ const handleRegister = (db, bcrypt) => (req, res) => {
         sector: sector,
       })
       .into(numedb)
-      .catch((err) => res.status(200).json("Utilizatorul exista"))
+      
       .then(trx.commit);
-  });
-  res.status(200).json('Utilizator introdus');
+      res.status(200).json('Utilizator introdus');
+  })}catch(error){
+    res.status(200).json('Utilizator exista');
+  }
+  
+  
 };
 
 module.exports = {
