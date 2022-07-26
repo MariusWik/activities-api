@@ -14,8 +14,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
         sector: sector,
       })
       .into(numedb)
-
-      .catch((err) => {return res.status(200).json("Utilizatorul exista")})
+      .catch((err) => res.status(200).json(err))
       .then(trx.commit);
   } ) 
   res.status(200).json('Utilizator introdus');
