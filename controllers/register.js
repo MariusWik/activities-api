@@ -7,9 +7,8 @@ const handleRegister = (db, bcrypt) => (req, res) => {
   const hash = bcrypt.hashSync(password);
   const numedb = "login";
   
-
   db.transaction((trx) => {
-    var mesaj ='User introdus';
+   
     trx
       .insert({
         hash: hash,
@@ -17,11 +16,10 @@ const handleRegister = (db, bcrypt) => (req, res) => {
         sector: sector,
       })
       .into(numedb)
-
-      .catch((mesaj) => mesaj ='User exista')
-      .then(trx.commit);
+      .then(trx.commit)
+      .catch(trx.rollback);
   } ) 
-  res.status(200).json(mesaj);
+  res.status(200)
 };
 
 module.exports = {
