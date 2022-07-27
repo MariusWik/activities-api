@@ -16,7 +16,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
       })
       .into(numedb)
       .catch((err) => {
-        if (err) {
+        if (err.length>0) {
           return res.status(200).json("Utilizatorul exista");
         } else {
           res.status(200).json("Utilizator introdus");
