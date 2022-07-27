@@ -8,7 +8,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
   const numedb = "login";
 
 const exista= db.select(db.exists(db.select('1').from(numedb).where('username','=',`${username}`)))
-console.log(exista);
+res.status(200).json(exista);
 
 
   /* db.transaction((trx) => {
