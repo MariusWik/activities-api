@@ -19,7 +19,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
         if (err.length>0) {
           return res.status(200).json("Utilizatorul exista");
         } else {
-          res.status(200).json("Utilizator introdus");
+          return res.status(200).json("Utilizator introdus");
         }
       })
       .then(trx.commit);
