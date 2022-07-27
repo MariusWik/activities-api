@@ -24,7 +24,7 @@ console.log(exista);
   });
   res.status(200).json('Utilizator introdus');
 }; */
-
+}
 module.exports = {
   handleRegister: handleRegister,
 };
