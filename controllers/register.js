@@ -15,26 +15,12 @@ const handleRegister = (db, bcrypt) => (req, res) => {
         sector: sector,
       })
       .into(numedb)
-      .catch((err) => {
-        if (err) {
-          return res.status(200).json("Utilizatorul exista");
-        } else {
-          db.transaction((trx)=>{
-            trx.inser({
-              hash:hash,
-              username: username,
-              sector: sector})
-              .into(numedb)
-              .then(trx.commit)})
-            }
-            })
-          })
-          return res.status(200).json("Utilizator introdus");
-        }
-      
-      
 
-
+      .catch((err) =>{return res.status(400).json("Utilizatorul exista")}  )
+      .then(trx.commit);
+  } ) 
+  res.status(200).json('Utilizator introdus');
+};
 
 module.exports = {
   handleRegister: handleRegister,
