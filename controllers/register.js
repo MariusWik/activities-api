@@ -3,15 +3,12 @@ const handleRegister = (db, bcrypt) => (req, res) => {
   if (!username || !password || !sector) {
     return res.status(200).json("Nu ati introdus corect datele");
   }
-  const hash = bcrypt.hashSync(password);
 
+  const hash = bcrypt.hashSync(password);
   const numedb = "login";
 
-const exista= db.select(db.exists(db.select('1').from(numedb).where('username','=',`${username}`)))
-res.status(200).json(exista);
 
-
-  /* db.transaction((trx) => {
+  db.transaction((trx) => {
     trx
       .insert({
         hash: hash,
@@ -23,8 +20,8 @@ res.status(200).json(exista);
       .then(trx.commit);
   });
   res.status(200).json('Utilizator introdus');
-}; */
-}
+};
+
 module.exports = {
   handleRegister: handleRegister,
 };
