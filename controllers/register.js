@@ -16,7 +16,7 @@ var mesaj ='User introdus';
       })
       .into(numedb)
 
-      .catch((err) => mesaj ='User exista')
+      .catch((mesaj) => mesaj ='User exista')
       .then(trx.commit);
   } ) 
   res.status(200).json(mesaj);
