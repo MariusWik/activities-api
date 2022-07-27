@@ -19,13 +19,13 @@ const handleRegister = (db, bcrypt) =>  (req, res) => {
     .into(numedb)
     
     .then(trx.commit)
-  });
-    if (merge){
+  });} catch(err){
+    return res.status(200).json('Utilizatorul exista')
+  } 
+   
       res.status(200).json('Utilizator introdus')
-  }
-}catch(err){
-  res.status(200).json('Utilizatorul exista')
-}  
+  
+
 
 
 /*   db.transaction((trx) => {
