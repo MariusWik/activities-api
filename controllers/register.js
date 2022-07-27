@@ -9,7 +9,7 @@ const handleRegister = (db, bcrypt) =>  (req, res) => {
 
 
   try {
-  const merge =  db.transaction((trx) => {
+  db.transaction((trx) => {
    trx
     .insert({
       hash: hash,
@@ -20,7 +20,7 @@ const handleRegister = (db, bcrypt) =>  (req, res) => {
     
     .then(trx.commit)
   });} catch(err){
-    return res.status(200).json('Utilizatorul exista')
+   if (err) {return res.status(200).json('Utilizatorul exista')} 
   } 
    
       res.status(200).json('Utilizator introdus')
