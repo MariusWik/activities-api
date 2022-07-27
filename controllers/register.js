@@ -16,10 +16,10 @@ const handleRegister = (db, bcrypt) => (req, res) => {
       })
       .into(numedb)
       .then(trx.commit)
-      .catch(trx.rollback)
+      .catch(trx.rollback);
       
       
-  }).catch(()=>res.status(200).json('Utilizatorul exista'))
+  }).catch((err)=>res.json(err));
 
   res.status(200).json('Utilizator introdus')
  
