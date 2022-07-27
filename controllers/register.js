@@ -7,7 +7,28 @@ const handleRegister = (db, bcrypt) => (req, res) => {
   const hash = bcrypt.hashSync(password);
   const numedb = "login";
 
-  db.transaction((trx) => {
+
+  try {
+  const merge = await db.transaction((trx) => {
+   trx
+    .insert({
+      hash: hash,
+      username: username,
+      sector: sector,
+    })
+    .into(numedb)
+    
+    .then(trx.commit)
+  });
+    if (merge){
+      res.status(200).json('Utilizator introdus')
+  }
+}catch(err){
+  res.status(200).json('Utilizatorul exista')
+}  
+
+
+/*   db.transaction((trx) => {
     trx
       .insert({
         hash: hash,
@@ -16,10 +37,10 @@ const handleRegister = (db, bcrypt) => (req, res) => {
       })
       .into(numedb)
 
-      .catch((err) =>{return res.status(400).json("Utilizatorul exista")}  )
+      .catch((err) => res.status(400).json("Utilizatorul exista"))
       .then(trx.commit);
   } ) 
-  res.status(200).json('Utilizator introdus');
+  res.status(200).json('Utilizator introdus'); */
 };
 
 module.exports = {
