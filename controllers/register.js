@@ -1,4 +1,4 @@
-const handleRegister =async (db, bcrypt) =>  (req, res) => {
+const handleRegister = (db, bcrypt) =>  (req, res) => {
   const { username, password, sector } = req.body;
   if (!username || !password || !sector) {
     return res.status(200).json("Nu ati introdus corect datele");
@@ -9,7 +9,7 @@ const handleRegister =async (db, bcrypt) =>  (req, res) => {
 
 
   try {
-  const merge = await db.transaction((trx) => {
+  const merge =  db.transaction((trx) => {
    trx
     .insert({
       hash: hash,
