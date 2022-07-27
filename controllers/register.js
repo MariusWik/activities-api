@@ -19,9 +19,9 @@ const handleRegister = (db, bcrypt) => (req, res) => {
       .catch(trx.rollback);
       
       
-  }).catch((err)=>res.json(err));
+  }).catch((err)=>res.status(400).json(err));
 
-  res.status(200).json('Utilizator introdus')
+  res.sendStatus(200)
  
 };
 
