@@ -20,7 +20,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
       
   }).catch(()=>res.status(200).json('Utilizatorul exista'))
 
-  res.stats(200).json('Utilizator introdus')
+  res.status(200).json('Utilizator introdus')
  
 };
 
