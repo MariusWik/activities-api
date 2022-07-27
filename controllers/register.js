@@ -7,7 +7,7 @@ const handleRegister = (db, bcrypt) => (req, res) => {
   const hash = bcrypt.hashSync(password);
   const numedb = "login";
   
-  var mesaj ='User introdus';
+  var mesaj ='trigg';
   db.transaction((trx) => {
    
     trx
