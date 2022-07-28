@@ -21,7 +21,7 @@ const handleAdaugareActivitate = (db) => (req, res) => {
         .catch(trx.rollback);
     }).catch((err) => res.status(400).json(err));
 
-   res.sendStatus(200).json('activitate introdusa');
+   res.sendStatus(200);
    
   };
 
