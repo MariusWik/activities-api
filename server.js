@@ -18,7 +18,7 @@ const schimbareParola = require("./controllers/schimbareParola");
 const arhivareActivitate=require("./controllers/arhivareActivitate")
 const afisareActivitatiVechi = require("./controllers/afisareActivitatiVechi.js");
 const stergereActivitateVeche = require("./controllers/stergereActivitateVeche.js");
-
+const copiereActivitateVeche = require("./controllers/copiereActivitate");
 
 const db = knex({
   client: "pg",
@@ -48,6 +48,7 @@ app.post("/schimbareparola", schimbareParola.handleSchimbareParola(db, bcrypt));
 app.post("/arhivareactivitate", arhivareActivitate.handleArhivareActivitate(db));
 app.post("/afisareactivitativechi", afisareActivitatiVechi.handleAfisareActivitatiVechi(db));
 app.post("/stergereactivitateveche", stergereActivitateVeche.handleStergereActivitateVeche(db));
+app.post("/copiereactivitate", copiereActivitateVeche.handleCopiereActivitate(db));
 
 app.listen(process.env.PORT, () => {
     console.log(`app is runnign on port ${process.env.PORT}`);
