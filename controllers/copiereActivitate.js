@@ -11,7 +11,7 @@ const handleCopiereActivitate = (db) => (req, res) => {
         .into(numedb)
         .then(trx.commit)
         .catch(trx.rollback);
-    }).catch((err) => res.status(400).json(err));
+    })
    
   
 
