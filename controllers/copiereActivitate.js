@@ -1,5 +1,5 @@
 const handleCopiereActivitate = (db) => (req, res) => {
-    const { idCopiat} = req.body;
+    const { sector, idCopiat} = req.body;
     
    
     const numedb="activitatidirectie";
@@ -7,8 +7,8 @@ const handleCopiereActivitate = (db) => (req, res) => {
     
     db.transaction((trx) => {
       trx
-        .insert(db.select('*').from(numedb2).where('id','=',`${idCopiat}`))
-        .into(numedb)
+        .insert(db.select( `${sector}`,'activitate', 'datastart','datastop','observatii').from(numedb2).where('id','=',`${idCopiat}`))
+        .into(numedb( `${sector}`,'activitate', 'datastart', 'datastop','observatii'))
         .then(trx.commit)
         .catch(trx.rollback);
     })
