@@ -7,7 +7,7 @@ const handleCopiereActivitate = (db) => (req, res) => {
     
     db.transaction((trx) => {
       trx
-        .insert(db.select('sector','activitate','datastart', 'datastop', 'observatii').from(numedb2).where('id','=',`${idCopiat}`))
+        .insert(db.select('*').from(numedb2).where('id','=',`${idCopiat}`))
         .into(numedb)
         .then(trx.commit)
         .catch(trx.rollback);
@@ -15,7 +15,7 @@ const handleCopiereActivitate = (db) => (req, res) => {
    
   
 
-    res.sendStatus(200);
+    res.status(200).json('Activitate copiata');
   };
 
   
