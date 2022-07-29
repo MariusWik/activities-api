@@ -15,7 +15,7 @@ const handleCopiereActivitate = (db) => (req, res) => {
    
   
 
-    res.status(200).json('Activitate arhivata');
+    res.sendStatus(200);
   };
 
   
