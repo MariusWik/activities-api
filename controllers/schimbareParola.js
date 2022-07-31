@@ -16,6 +16,7 @@ const handleSchimbareParola = (db, bcrypt) => (req, res) => {
           trx
             .update({
               hash: newPass,
+              entries: true
             })
             .into(numedb)
             .where("username", "=", `${numeschimbare}`)
