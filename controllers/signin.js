@@ -1,13 +1,13 @@
 const handleSignin = (db, bcrypt) => (req, res) => {
   const { username, password } = req.body;
 
-  if ((username === "admin") & (password === "admin")) {
+  /* if ((username === "admin") & (password === "admin")) {
     res.json({
       username: "admin",
       sector: "admin",
       id: "1",
     });
-  } else {
+  } else { */
     if (!username || !password) {
       return res.status(200).json("Nu ati introdus corect user/parola");
     }
@@ -30,7 +30,7 @@ const handleSignin = (db, bcrypt) => (req, res) => {
         }
       })
       .catch((err) => res.status(400).json(err));
-  }
+  // }
 };
 
 module.exports = {
