@@ -1,4 +1,4 @@
-const handleCopiereActivitate = (db) => (req, res) => {
+const handleDuplicateActivitate = (db) => (req, res) => {
     const { sector, idMultiplicat } = req.body;
   
     const numedb = "activitatidirectie";
@@ -43,6 +43,6 @@ const handleCopiereActivitate = (db) => (req, res) => {
   };
   
   module.exports = {
-    handleCopiereActivitate: handleCopiereActivitate,
+    handleDuplicateActivitate: handleDuplicateActivitate,
   };
   
